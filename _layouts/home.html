@@ -4,9 +4,20 @@ layout: default
 
 {% include site-header.html %}
 
-<main class="main container">
-    <!-- Minimal Post List -->
-    {% include post-list.html %}
+<main class="main  container">
+
+    <div class="content">
+
+        <article class="article  article--page  typeset">
+
+            {{ content }}
+
+        </article>
+
+        {% include post-list.html %}
+
+    </div>
+
 </main>
 
 {% include site-footer.html %}

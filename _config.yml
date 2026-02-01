@@ -8,3 +8,9 @@ remote_theme: daviddarnes/garth
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
+
+navigation_header:
+  - title: About me
+    url: /about/
+  - title: Blog
+    url: /

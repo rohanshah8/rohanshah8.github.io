@@ -1,0 +1,14 @@
+<nav class="nav  nav--header">
+    <a class="nav__item  nav__item--home" href="{{ site.baseurl }}/">
+        <h1 class="nav__title">{{ site.title }}</h1>
+    </a>
+    {% if site.navigation_header %}
+    <ul class="list  list--nav">
+        {% for item in site.navigation_header %}
+        <li class="item  item--nav">
+            <a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</nav>
