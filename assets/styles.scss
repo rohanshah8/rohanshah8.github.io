@@ -1,10 +1,17 @@
 --- --- @import "garth";
 
 /* Custom Styles */
+body {
+    background-color: #ffefc8 !important;
+    /* Explicitly set Garth Theme Background */
+    color: #46412A;
+}
+
 .header {
     position: sticky;
     top: 0;
-    background-color: #fdf6e3;
+    background-color: #ffefc8;
+    /* Match body background */
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     width: 100%;
@@ -20,12 +27,13 @@
     display: flex;
     align-items: baseline;
     padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #777;
+    /* Darker border for visibility */
 }
 
 .post-list-minimal .post-date {
     font-family: monospace;
-    color: #777;
+    color: #666;
     width: 120px;
     flex-shrink: 0;
     font-size: 0.95rem;
@@ -34,7 +42,8 @@
 .post-list-minimal .post-link {
     font-weight: 700;
     text-decoration: none;
-    color: #333;
+    color: #46412A;
+    /* Match theme body color */
     font-size: 1.1rem;
 }
 
