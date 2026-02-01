@@ -20,6 +20,58 @@
     <link rel="shortcut icon" href="{{ site.logo }}">
     {% endif %}
 
+    <style>
+        /* Custom Overrides */
+
+        /* Static (Sticky) Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: #fdf6e3;
+            /* Match theme beige or white */
+            background-color: #fff;
+            /* White looks cleaner for sticky */
+            z-index: 999;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        /* Theme color adjustment if needed to match Garth's default beige #fdf6e3 or keep white */
+
+        /* Minimal Post List for Home Page */
+        .post-list-minimal {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .post-list-minimal li {
+            display: flex;
+            align-items: baseline;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .post-list-minimal .post-date {
+            font-family: monospace;
+            color: #666;
+            width: 120px;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .post-list-minimal .post-link {
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .post-list-minimal .post-link:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+    </style>
+
 </head>
 
 <body>
