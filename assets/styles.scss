@@ -1,0 +1,44 @@
+--- --- @import "garth";
+
+/* Custom Styles */
+.header {
+    position: sticky;
+    top: 0;
+    background-color: #fdf6e3;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.post-list-minimal {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list-minimal li {
+    display: flex;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.post-list-minimal .post-date {
+    font-family: monospace;
+    color: #777;
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+}
+
+.post-list-minimal .post-link {
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.post-list-minimal .post-link:hover {
+    text-decoration: underline;
+    color: #000;
+}
