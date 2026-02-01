@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+
+    <article class="article  article--post  content  typeset">
+
+        <h1 style="margin-bottom: 0.5rem;">{{ page.title }}</h1>
+
+        <div style="margin-bottom: 2rem; color: #666; font-size: 0.9rem; font-family: monospace;">
+            {{ page.date | date: "%d %b %Y" }}
+            <span style="margin: 0 10px;">&middot;</span>
+            <span id="busuanzi_container_page_pv" style="display: none;">
+                <span id="busuanzi_value_page_pv"></span> views
+            </span>
+        </div>
+
+        {{ content }}
+
+    </article>
+
+</main>
+
+{% include site-footer.html %}
