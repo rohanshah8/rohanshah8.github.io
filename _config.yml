@@ -1,7 +1,7 @@
 title: Rohan Shah
 description: >-
   My personal blog where I share thoughts on technology, life, and building things.
-theme: garth-jekyll-theme
+
 remote_theme: daviddarnes/garth
 plugins:
   - jekyll-remote-theme
