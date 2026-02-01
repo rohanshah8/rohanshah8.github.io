@@ -1,0 +1,107 @@
+/* Global Styles */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+/* Layout */
+.container {
+    max-width: 680px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: #000;
+}
+
+header h1 a:hover {
+    text-decoration: none;
+    color: #555;
+}
+
+/* Content Typography */
+h1.post-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+a {
+    color: #007bff; /* Minimal blue link */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Post List (Home Page) */
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: baseline;
+}
+
+.post-list .date {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #888;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.post-list a {
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+}
+
+.post-list a:hover {
+    color: #007bff;
+}
+
+/* Footer */
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
