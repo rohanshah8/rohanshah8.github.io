@@ -4,13 +4,46 @@ baseurl: ""
 description: >-
   My personal blog where I share thoughts on technology, life, and building things.
 
+# Theme
 remote_theme: daviddarnes/garth
+
+# Plugins
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
+  - jekyll-sitemap
 
+# Jekyll settings
+permalink: pretty
+excerpt_separator: <!-- more -->
+
+# Collections
+collections:
+  posts:
+    title: Blog
+    output: true
+    description: "My thoughts on technology, life, and building things."
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Navigation
 navigation_header:
   - title: About me
     url: /about/
   - title: Blog
     url: /
+
+# Site settings
+encoding: utf-8
+lang: en-US

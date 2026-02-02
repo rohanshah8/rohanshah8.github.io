@@ -1,11 +1,17 @@
---- --- @import "garth";
+﻿---
+---
+@import "garth";
 
-/* Minimal custom styles - let the theme handle most styling */
+/* Custom background color */
 body {
     background-color: #ffefc8 !important;
     color: #46412A;
 }
 
 .header {
+    background-color: #ffefc8;
+}
+
+.footer {
     background-color: #ffefc8;
 }
