@@ -1,5 +1,4 @@
 ---
-layout: blog
-title: Blog
+layout: home
 collectionpage: posts
 ---
