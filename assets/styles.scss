@@ -1,17 +1,32 @@
-﻿---
 ---
+title: false
+styles: true
+---
+
 @import "garth";
 
-/* Custom background color */
+/* Custom color scheme - warm beige theme */
 body {
     background-color: #ffefc8 !important;
     color: #46412A;
 }
 
-.header {
+.header,
+.footer {
     background-color: #ffefc8;
 }
 
-.footer {
-    background-color: #ffefc8;
+/* Ensure links maintain good contrast */
+a {
+    color: #2c5f2d;
+}
+
+a:hover {
+    color: #1a3a1b;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button {
+    transition: all 0.2s ease-in-out;
 }

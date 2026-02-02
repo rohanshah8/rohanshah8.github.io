@@ -12,17 +12,23 @@ plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination settings
+paginate: 5 # Number of posts per page
+paginate_path: page:num # Blog pagination path
 
 # Jekyll settings
 permalink: pretty
 excerpt_separator: <!-- more -->
+timezone: America/New_York # Set to your timezone
 
 # Collections
 collections:
   posts:
     title: Blog
     output: true
-    description: "My thoughts on technology, life, and building things."
+    description: "Thoughts on technology, life, and building things. [Learn more about me](/about/)"
 
 # Defaults
 defaults:
