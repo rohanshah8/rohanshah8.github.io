@@ -1,4 +1,4 @@
----
+﻿---
 title: false
 styles: true
 ---
@@ -29,4 +29,55 @@ a:hover {
 a,
 button {
     transition: all 0.2s ease-in-out;
+}
+
+/* Custom header layout - name on left, navigation on right */
+.header {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide the logo if present */
+    .logo {
+        display: none;
+    }
+
+    /* Show and style the navigation on the right */
+    .nav {
+        display: block;
+    }
+
+    /* Style the site name on the left */
+    .site-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        a {
+            text-decoration: none;
+            color: #46412A;
+
+            &:hover {
+                color: #2c5f2d;
+            }
+        }
+    }
+}
+
+/* Responsive: stack vertically on mobile */
+@media (max-width: 600px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .site-name {
+        order: 1;
+    }
+
+    .nav {
+        order: 2;
+    }
 }
