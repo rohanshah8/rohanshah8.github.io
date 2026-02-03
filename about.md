@@ -12,7 +12,7 @@ I'm a **Senior Machine Learning Engineer**  working on enabling ML/DL models to 
 
 ## Background
 
-I completed my **Master's degree from the Indian Institute of Science (IISc), Bangalore**, where I developed a strong foundation in Machine Learning and Deep Learning. My master's thesis focused on developing automated rare disease identification systems that processed millions of data points, working under the guidance of Prof. Rajesh Sunderasan.
+I completed my **Master's degree from the Indian Institute of Science (IISc), Bangalore**, where I developed a strong foundation in Machine Learning and Deep Learning. My master's thesis focused on developing automated rare disease identification systems that processed millions of data points, working under the guidance of [Prof. Rajesh Sunderasan](https://eecs.iisc.ac.in/people/rajesh-sundaresan/).
 
 ## Experience
 
