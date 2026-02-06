@@ -49,6 +49,8 @@ navigation_header:
     url: /about/
   - title: Blog
     url: /
+  - title: List_2026
+    url: /list_2026/
 
 # Site settings
 encoding: utf-8
