@@ -284,7 +284,48 @@ a {
     }
 }
 
-/* Page Typography styling (Tighter spacing) */
+/* Profile Intro Section */
+.profile-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.profile-text {
+    p {
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+
+        &:first-child {
+            font-size: 1.15rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-intro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Page Typography styling (No boxes, clean flowing content) */
 .article--page {
     h2 {
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -312,7 +353,8 @@ a {
     }
     
     ul {
-        padding-left: 1.25rem;
+        list-style: none;
+        padding-left: 0.25rem;
         margin-bottom: 1rem;
 
         li {
@@ -320,6 +362,27 @@ a {
             line-height: 1.5;
             color: var(--text-secondary);
             font-size: 0.95rem;
+            padding: 0;
+            background: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            position: relative;
+            padding-left: 1.1rem;
+
+            &::before {
+                content: "▸";
+                position: absolute;
+                left: 0;
+                color: var(--accent-cyan);
+                font-size: 0.85rem;
+            }
+
+            &:hover {
+                transform: none !important;
+                background: none !important;
+                border-color: transparent !important;
+            }
         }
     }
 }
