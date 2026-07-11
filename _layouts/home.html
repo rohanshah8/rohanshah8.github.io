@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+{% include site-header.html %}
+
+<main class="main container">
+
+	<div class="content">
+
+    <article class="article article--page typeset">
+
+			{% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+			<h1>{{ collectiondata.title }}</h1>
+
+			{{ collectiondata.description | markdownify }}
+
+    </article>
+
+    {% include post-list.html %}
+
+  </div>
+
+</main>
+
+<script>
+  (function() {
+    var els = document.querySelectorAll('.post-views-count');
+    if (!els || els.length === 0) return;
+    
+    els.forEach(function(el) {
+      var key = el.getAttribute('data-post-url') || 'global';
+      fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key)
+        .then(function(response) {
+          if (!response.ok) throw new Error('API error');
+          return response.json();
+        })
+        .then(function(data) {
+          if (data && typeof data.count !== 'undefined') {
+            el.textContent = data.count + ' views';
+          } else {
+            el.textContent = '0 views';
+          }
+        })
+        .catch(function() {
+          el.style.display = 'none';
+          var divider = el.previousElementSibling;
+          if (divider && divider.classList.contains('views-meta-divider')) {
+            divider.style.display = 'none';
+          }
+        });
+    });
+  })();
+</script>
+
+{% include site-footer.html %}
