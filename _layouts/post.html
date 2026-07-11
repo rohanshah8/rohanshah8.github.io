@@ -27,6 +27,8 @@ layout: default
                 <span class="meta-dot">&middot;</span>
                 <span>{{ page.author }}</span>
                 {% endif %}
+                <span class="meta-dot">&middot;</span>
+                <span id="views-count">... views</span>
             </div>
         </header>
 
@@ -36,5 +38,30 @@ layout: default
     </article>
 
 </main>
+
+<script>
+  (function() {
+    var key = '{{ page.url | slugify }}' || 'global';
+    var viewsEl = document.getElementById('views-count');
+    if (viewsEl) {
+      fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key + '/up')
+        .then(function(response) {
+          if (!response.ok) throw new Error('API error');
+          return response.json();
+        })
+        .then(function(data) {
+          if (data && typeof data.count !== 'undefined') {
+            viewsEl.textContent = data.count + ' views';
+          } else {
+            viewsEl.style.display = 'none';
+          }
+        })
+        .catch(function() {
+          // If CounterAPI is down, hide views count element gracefully
+          viewsEl.style.display = 'none';
+        });
+    }
+  })();
+</script>
 
 {% include site-footer.html %}
