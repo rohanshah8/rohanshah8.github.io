@@ -1,8 +1,90 @@
+<script>
+  // Prevent flash of wrong theme — runs before any rendering
+  (function() {
+    var t = localStorage.getItem('site-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 <header class="header">
     <div class="container">
         <div class="site-name">
             <a href="{{ site.baseurl }}/">{{ site.title }}</a>
         </div>
-        {% include site-nav.html %}
+        <div class="header-right">
+            {% include site-nav.html %}
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <!-- Sun icon (Light) -->
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <!-- Moon icon (Dark) -->
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <!-- Auto icon (half-circle) -->
+                <svg class="icon-auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a10 10 0 0 1 0 20" fill="currentColor" stroke="none"/>
+                </svg>
+            </button>
+        </div>
     </div>
 </header>
+
+<script>
+(function() {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var themes = ['light', 'dark', 'auto'];
+    var autoRAF = null;
+    var hue = 0;
+
+    function currentTheme() {
+        return root.getAttribute('data-theme') || 'light';
+    }
+
+    // Auto color cycling — smoothly rotates accent hue
+    function startAuto() {
+        hue = Math.random() * 360; // start at a random point
+        function cycle() {
+            hue = (hue + 0.12) % 360;
+            var s = '70%', l = '52%';
+            root.style.setProperty('--accent', 'hsl(' + hue + ',' + s + ',' + l + ')');
+            root.style.setProperty('--accent-hover', 'hsl(' + hue + ',' + s + ',44%)');
+            root.style.setProperty('--accent-light', 'hsla(' + hue + ',' + s + ',' + l + ',0.08)');
+            root.style.setProperty('--accent-border', 'hsla(' + hue + ',' + s + ',' + l + ',0.25)');
+            root.style.setProperty('--border-card-hover', 'hsl(' + hue + ',' + s + ',' + l + ')');
+            autoRAF = requestAnimationFrame(cycle);
+        }
+        cycle();
+    }
+
+    function stopAuto() {
+        if (autoRAF) { cancelAnimationFrame(autoRAF); autoRAF = null; }
+        // Remove inline overrides so CSS-defined values take over
+        ['--accent','--accent-hover','--accent-light','--accent-border','--border-card-hover'].forEach(function(p) {
+            root.style.removeProperty(p);
+        });
+    }
+
+    function applyTheme(theme) {
+        stopAuto();
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('site-theme', theme);
+        if (theme === 'auto') { startAuto(); }
+    }
+
+    // Restore auto cycling if page loaded with auto theme
+    if (currentTheme() === 'auto') { startAuto(); }
+
+    btn.addEventListener('click', function() {
+        var idx = themes.indexOf(currentTheme());
+        var next = themes[(idx + 1) % themes.length];
+        applyTheme(next);
+    });
+})();
+</script>
