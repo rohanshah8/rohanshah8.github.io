@@ -45,6 +45,10 @@ layout: default
 
       fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key)
         .then(function(response) {
+          if (response.status === 404) {
+            // Counter doesn't exist yet, return 0 count
+            return { count: 0 };
+          }
           if (!response.ok) throw new Error('API error');
           return response.json();
         })
