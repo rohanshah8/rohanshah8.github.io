@@ -847,3 +847,41 @@ pre {
         font-size: 1rem;
     }
 }
+
+/* ---- Connect Bar (Social Card) ---- */
+.connect-bar {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-card);
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    display: inline-flex;
+    gap: 0.85rem;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+
+    .connect-btn {
+        width: 34px;
+        height: 34px;
+        background-color: var(--text-primary);
+        color: var(--bg-secondary) !important;
+        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        text-decoration: none !important;
+        border-bottom: none !important;
+
+        &:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent);
+            color: #ffffff !important;
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+    }
+}
