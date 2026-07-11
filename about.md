@@ -38,14 +38,4 @@ I'm passionate about:
 - **Production ML** - Building reliable, scalable ML systems
 - **Deep Learning** - Exploring new architectures and optimization techniques
 
-## Connect
 
-I'd love to connect and discuss ML, edge computing, or anything tech-related!
-
-- [LinkedIn](https://www.linkedin.com/in/rohan-shah-50221612a/)
-- [GitHub](https://github.com/rohanshah8)
-- [Blog](/) - You're already here!
-
----
-
-*This site is built with Jekyll using the [Garth theme](https://github.com/daviddarnes/garth) and hosted on GitHub Pages.*

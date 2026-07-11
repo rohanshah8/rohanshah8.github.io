@@ -666,6 +666,33 @@ pre {
         margin: 0;
     }
 
+    .footer-social-links {
+        display: flex;
+        gap: 1.25rem;
+        margin-bottom: 0.75rem;
+        justify-content: center;
+
+        a {
+            color: var(--text-secondary) !important;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none !important;
+            border-bottom: none !important;
+
+            &:hover {
+                color: var(--accent) !important;
+                transform: translateY(-2px);
+            }
+
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: currentColor;
+            }
+        }
+    }
+
     a {
         color: var(--text-secondary) !important;
         border-bottom: none !important;
