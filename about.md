@@ -7,7 +7,7 @@ permalink: /about/
 <div class="profile-intro">
   <img src="/assets/images/rohan.jpg" alt="Rohan Shah" class="profile-photo" />
   <div class="profile-text">
-    <p>Hi, I'm <strong>Rohan Shah</strong> 👋</p>
+    <p>Hi, I'm <strong>Rohan Shah</strong></p>
     <p>Senior Machine Learning Engineer working on enabling ML/DL models to run efficiently on edge devices. My focus is on optimizing deep learning models for mobile, automotive & IOT, making AI accessible and practical for every device locally.</p>
   </div>
 </div>
