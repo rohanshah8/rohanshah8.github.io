@@ -29,7 +29,20 @@ layout: default
     if (!els || els.length === 0) return;
     
     els.forEach(function(el) {
-      var key = el.getAttribute('data-post-url') || 'global';
+      var articleEl = el.closest('article');
+      if (!articleEl) return;
+      var linkEl = articleEl.querySelector('h2 a');
+      if (!linkEl) return;
+      
+      var path = linkEl.getAttribute('href') || '';
+      var key = path.split('?')[0].split('#')[0]
+                    .replace(/\.html$/, '')
+                    .replace(/^\/|\/$/g, '')
+                    .replace(/[\/\._]/g, '-')
+                    .toLowerCase();
+                    
+      if (!key) return;
+
       fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key)
         .then(function(response) {
           if (!response.ok) throw new Error('API error');

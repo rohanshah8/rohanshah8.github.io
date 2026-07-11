@@ -41,9 +41,16 @@ layout: default
 
 <script>
   (function() {
-    var key = '{{ page.url | slugify }}' || 'global';
     var viewsEl = document.getElementById('views-count');
     if (viewsEl) {
+      var path = window.location.pathname;
+      var key = path.replace(/\.html$/, '')
+                    .replace(/^\/|\/$/g, '')
+                    .replace(/[\/\._]/g, '-')
+                    .toLowerCase();
+
+      if (!key) return;
+
       fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key + '/up')
         .then(function(response) {
           if (!response.ok) throw new Error('API error');
@@ -57,7 +64,6 @@ layout: default
           }
         })
         .catch(function() {
-          // If CounterAPI is down, hide views count element gracefully
           viewsEl.style.display = 'none';
         });
     }
