@@ -55,3 +55,14 @@ navigation_header:
 # Site settings
 encoding: utf-8
 lang: en-US
+
+# Setting `exclude` REPLACES Jekyll's defaults, so the standard entries are
+# restated here. `docs` is load-bearing: without it Jekyll parses the Liquid
+# inside the spec and plan markdown and the build fails outright.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - docs
+  - README.md
