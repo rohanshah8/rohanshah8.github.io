@@ -1,0 +1,168 @@
+.shell {
+  width: 100%;
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* Body is a flex column, so main grows and the footer stays at the bottom
+   even on short pages. */
+main { flex: 1 0 auto; }
+
+/* ---- Header ---- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  background: var(--header-bg);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.site-name {
+  font-weight: 700;
+  font-size: var(--step-0);
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.site-name:hover { color: var(--accent); }
+
+.site-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.site-nav__link {
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.site-nav__link:hover { color: var(--accent); }
+.site-nav__link--current { color: var(--text); font-weight: 600; }
+
+/* ---- Theme toggle ---- */
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Exactly one icon shows, chosen by the active theme. */
+.theme-toggle svg { display: none; grid-area: 1 / 1; }
+[data-theme="light"] .icon-sun,
+html:not([data-theme]) .icon-sun,
+[data-theme="dark"] .icon-moon,
+[data-theme="auto"] .icon-auto { display: block; }
+
+/* ---- Two-column page grid ---- */
+
+.layout--card {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  gap: var(--gutter);
+  align-items: start;
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.layout__aside {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-6));
+  align-self: start;
+}
+
+.layout__main { min-width: 0; }
+
+.page-title { margin-bottom: var(--space-6); }
+
+@media (max-width: 1023px) {
+  :root { --sidebar-w: 260px; }
+}
+
+@media (max-width: 899px) {
+  .layout--card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    padding-block: var(--space-5) var(--space-7);
+  }
+  .layout__aside { position: static; top: auto; }
+  .site-nav { gap: var(--space-4); }
+}
+
+@media (max-width: 599px) {
+  /* Nav would crowd the toggle; drop to the essentials. */
+  .site-header__right { gap: var(--space-3); }
+  .site-nav { gap: var(--space-3); }
+  .site-nav__link { font-size: 0.8125rem; }
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.site-footer__socials {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__social {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+.site-footer__social:hover { color: var(--accent); }
+.site-footer__social svg { width: 18px; height: 18px; fill: currentColor; }
+
+.site-footer__copyright {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}

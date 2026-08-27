@@ -1,0 +1,23 @@
+{%- comment -%}
+In Jekyll `page.previous` is the older post and `page.next` the newer one.
+The empty span keeps "Next" right-aligned when there is no previous post.
+{%- endcomment -%}
+{% if page.previous or page.next %}
+<nav class="post-nav" aria-label="More posts">
+  {% if page.previous %}
+  <a class="post-nav__link" href="{{ page.previous.url | relative_url }}">
+    <span class="post-nav__label">&larr; Previous</span>
+    <span class="post-nav__title">{{ page.previous.title }}</span>
+  </a>
+  {% else %}
+  <span></span>
+  {% endif %}
+
+  {% if page.next %}
+  <a class="post-nav__link post-nav__link--next" href="{{ page.next.url | relative_url }}">
+    <span class="post-nav__label">Next &rarr;</span>
+    <span class="post-nav__title">{{ page.next.title }}</span>
+  </a>
+  {% endif %}
+</nav>
+{% endif %}

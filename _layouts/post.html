@@ -2,72 +2,20 @@
 layout: default
 ---
 
-{% include site-header.html %}
+<main class="shell post" id="content">
+  <article>
+    <header class="post__header">
+      <h1 class="post__title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="post__subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      {% include post-meta.html post=page mode="increment" show_author=true %}
+    </header>
 
-<main class="main container">
+    <div class="post__body prose">
+      {{ content }}
+    </div>
+  </article>
 
-    <article class="post-article">
-        <header class="post-header">
-            <h1 class="post-title">{{ page.title }}</h1>
-            {% if page.subtitle %}
-            <p class="post-subtitle">{{ page.subtitle }}</p>
-            {% endif %}
-            <div class="post-meta-bar">
-                <time datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date: "%B %d, %Y" }}
-                </time>
-                <span class="meta-dot">&middot;</span>
-                {% assign words = content | number_of_words %}
-                {% if words < 200 %}
-                <span>1 min read</span>
-                {% else %}
-                <span>{{ words | divided_by: 200 }} min read</span>
-                {% endif %}
-                {% if page.author %}
-                <span class="meta-dot">&middot;</span>
-                <span>{{ page.author }}</span>
-                {% endif %}
-                <span class="meta-dot">&middot;</span>
-                <span id="views-count">... views</span>
-            </div>
-        </header>
-
-        <div class="post-body">
-            {{ content }}
-        </div>
-    </article>
-
+  {% include post-nav.html %}
 </main>
-
-<script>
-  (function() {
-    var viewsEl = document.getElementById('views-count');
-    if (viewsEl) {
-      var path = window.location.pathname;
-      var key = path.replace(/\.html$/, '')
-                    .replace(/^\/|\/$/g, '')
-                    .replace(/[\/\._]/g, '-')
-                    .toLowerCase();
-
-      if (!key) return;
-
-      fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key + '/up')
-        .then(function(response) {
-          if (!response.ok) throw new Error('API error');
-          return response.json();
-        })
-        .then(function(data) {
-          if (data && typeof data.count !== 'undefined') {
-            viewsEl.textContent = data.count + ' views';
-          } else {
-            viewsEl.style.display = 'none';
-          }
-        })
-        .catch(function() {
-          viewsEl.style.display = 'none';
-        });
-    }
-  })();
-</script>
-
-{% include site-footer.html %}

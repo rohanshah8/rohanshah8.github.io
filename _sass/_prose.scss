@@ -1,0 +1,149 @@
+.prose {
+  max-width: var(--measure);
+  font-family: var(--font-prose);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.prose > :first-child { margin-top: 0; }
+.prose > :last-child { margin-bottom: 0; }
+
+.prose h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.6em;
+  font-size: var(--step-2);
+}
+
+.prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-size: var(--step-1);
+}
+
+.prose p { margin: 0 0 1.4em; }
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.07em;
+}
+.prose a:hover { color: var(--accent-hover); }
+
+.prose strong { font-weight: 600; color: var(--text); }
+
+.prose ul, .prose ol { margin: 0 0 1.4em; padding-left: 1.4em; }
+.prose li { margin-bottom: 0.5em; }
+
+.prose blockquote {
+  margin: 1.8em 0;
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--accent);
+  color: var(--text-secondary);
+}
+.prose blockquote p:last-child { margin-bottom: 0; }
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+}
+
+.prose pre {
+  margin: 1.8em 0;
+  padding: var(--space-4);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  /* Scroll rather than wrap, so code keeps its shape. */
+  overflow-x: auto;
+}
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+
+.prose img {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  margin: 1.8em 0 0.6em;
+}
+
+/* Caption support. This only matches when the caption sits on the line
+   immediately after the image with NO blank line between them, so kramdown
+   keeps both inside one <p>:
+
+       ![alt](/path.png)
+       *The caption*
+
+   A blank line puts the <em> in its own <p> and this rule will not apply. */
+.prose img + em {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  font-style: normal;
+  margin-bottom: 1.8em;
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-7) 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.8em 0;
+  font-size: var(--step--1);
+}
+.prose th, .prose td {
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; }
+
+/* ---- Post page ---- */
+
+.post {
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.post > article,
+.post .post-nav {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.post__header {
+  margin-bottom: var(--space-6);
+}
+
+.post__title {
+  font-size: var(--step-4);
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+}
+
+.post__subtitle {
+  font-size: var(--step-1);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 479px) {
+  .prose { font-size: 1.0625rem; line-height: 1.65; }
+  .post__title { font-size: var(--step-3); }
+  .post__subtitle { font-size: var(--step-0); }
+}

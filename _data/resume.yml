@@ -1,0 +1,31 @@
+experience:
+  - role: Senior Machine Learning Engineer
+    org: Qualcomm
+    dates: ""
+    bullets:
+      - Model quantization and compression
+      - Post-mortem analysis of every op inside the model graph
+      - Real-time inference optimization
+      - Power-efficient ML deployment
+      - AI orchestration for on-device LLMs — RAG systems, agents, and complex workflows executed locally
+
+  - role: Machine Learning Intern
+    org: Gojek
+    dates: ""
+    bullets:
+      - Built a production-ready image moderation system during the IISc master's program
+      - Learned first-hand what it takes to move ML from research into production
+    links:
+      - label: "How to Moderate Images Based on Text and Logo Using ML/DL"
+        url: https://medium.com/the-algorithmic-minds/how-to-moderate-images-based-on-text-and-logo-using-ml-dl-f48a7ef173ac
+
+education:
+  - degree: Master's degree, Machine Learning
+    org: Indian Institute of Science (IISc), Bangalore
+    dates: ""
+    note: >-
+      Thesis on automated rare disease identification, processing millions of
+      data points.
+    # Spelling follows IISc's own URL slug; about.md previously read "Sunderasan".
+    advisor: Prof. Rajesh Sundaresan
+    advisor_url: https://eecs.iisc.ac.in/people/rajesh-sundaresan/

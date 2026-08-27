@@ -1,0 +1,23 @@
+{%- comment -%}
+Descriptions use `subtitle` and fall back to `excerpt`, because posts without
+a body produce empty excerpts. Pass `limit` to cap the list; omit it for all.
+{%- endcomment -%}
+{%- assign lim = include.limit | default: 9999 -%}
+{% if site.posts.size == 0 %}
+<p class="postlist__empty">Nothing published yet.</p>
+{% else %}
+<ul class="postlist">
+  {% for item in site.posts limit: lim %}
+  <li class="postlist__item">
+    <h3 class="postlist__title">
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    </h3>
+    {% assign blurb = item.subtitle | default: item.excerpt %}
+    {% if blurb and blurb != '' %}
+    <p class="postlist__subtitle">{{ blurb | strip_html | strip_newlines | truncatewords: 30 }}</p>
+    {% endif %}
+    {% include post-meta.html post=item mode="read" %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

@@ -2,72 +2,26 @@
 layout: default
 ---
 
-{% include site-header.html %}
+<main class="shell layout layout--card" id="content">
+  <aside class="layout__aside">
+    {% include vcard.html as_heading=true %}
+  </aside>
 
-<main class="main container">
+  <div class="layout__main">
+    {% if content and content != '' %}
+    <div class="prose">
+      {{ content }}
+    </div>
+    {% endif %}
 
-	<div class="content">
-
-    <article class="article article--page typeset">
-
-			{% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
-			<h1>{{ collectiondata.title }}</h1>
-
-			{{ collectiondata.description | markdownify }}
-
-    </article>
-
-    {% include post-list.html %}
-
+    <section class="home-writing">
+      <h2 class="section-title">Writing</h2>
+      {% include post-list.html limit=5 %}
+      {% if site.posts.size > 5 %}
+      <p class="home-writing__more">
+        <a href="{{ '/writing/' | relative_url }}">All writing &rarr;</a>
+      </p>
+      {% endif %}
+    </section>
   </div>
-
 </main>
-
-<script>
-  (function() {
-    var els = document.querySelectorAll('.post-views-count');
-    if (!els || els.length === 0) return;
-    
-    els.forEach(function(el) {
-      var articleEl = el.closest('article');
-      if (!articleEl) return;
-      var linkEl = articleEl.querySelector('h2 a');
-      if (!linkEl) return;
-      
-      var path = linkEl.getAttribute('href') || '';
-      var key = path.split('?')[0].split('#')[0]
-                    .replace(/\.html$/, '')
-                    .replace(/^\/|\/$/g, '')
-                    .replace(/[\/\._]/g, '-')
-                    .toLowerCase();
-                    
-      if (!key) return;
-
-      fetch('https://api.counterapi.dev/v1/rohanshah8-github-io/' + key)
-        .then(function(response) {
-          if (response.status === 404) {
-            // Counter doesn't exist yet, return 0 count
-            return { count: 0 };
-          }
-          if (!response.ok) throw new Error('API error');
-          return response.json();
-        })
-        .then(function(data) {
-          if (data && typeof data.count !== 'undefined') {
-            el.textContent = data.count + ' views';
-          } else {
-            el.textContent = '0 views';
-          }
-        })
-        .catch(function() {
-          el.style.display = 'none';
-          var divider = el.previousElementSibling;
-          if (divider && divider.classList.contains('views-meta-divider')) {
-            divider.style.display = 'none';
-          }
-        });
-    });
-  })();
-</script>
-
-{% include site-footer.html %}
