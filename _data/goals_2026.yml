@@ -1,0 +1,46 @@
+# Progress values come from the previous version of this page:
+#   - books: "4 / 12 done (33%)"
+#   - marathon: "50% there"
+# Items that were bold (ongoing) or plain (not started) had no number, so they
+# carry a status instead of a fabricated percentage. Add a `percent:` to any of
+# them and a bar appears automatically.
+
+goals:
+  - label: Run a full marathon
+    detail: Half marathon done in 2025, base building now
+    percent: 50
+
+  - label: Read 12 books
+    detail: 4 of 12 done
+    percent: 33
+
+  - label: Learn to play the flute (basic level)
+    status: In progress
+
+  - label: Learn to drive a car
+    status: In progress
+
+  - label: Surprise Mom and Dad with a trip
+    status: In progress
+
+  - label: Bring back my competitive spirit
+    status: In progress
+
+  - label: Learn to make 10 desserts
+    status: Not started
+
+  - label: Communication and storytelling skills
+    status: Not started
+
+  - label: Comfortable in conversations and building connections
+    status: Not started
+
+habits:
+  - name: Stop overthinking
+    note: Catch the loops early and redirect energy outward.
+  - name: Be present
+    note: Neither regret the past nor worry about the future.
+  - name: Breathing techniques
+    note: Breathwork for focus, stress reduction, and clarity.
+  - name: Humbleness with maturity
+    note: Carry confidence alongside humility without discounting it.

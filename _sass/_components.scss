@@ -153,3 +153,100 @@
   font-size: var(--step--1);
   color: var(--text-secondary);
 }
+
+/* ---- 2026 goals ---- */
+
+.goals {
+  list-style: none;
+  margin: 0 0 var(--space-7);
+  padding: 0;
+  max-width: var(--measure);
+}
+
+.goal {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+.goal:first-child { padding-top: 0; }
+.goal:last-child { border-bottom: 0; }
+
+.goal__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.goal__label {
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.goal__pct {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--accent);
+}
+
+.goal__status {
+  flex: 0 0 auto;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.1em 0.6em;
+  white-space: nowrap;
+}
+
+.goal__bar {
+  margin-top: var(--space-3);
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.goal__fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.goal__detail {
+  margin: var(--space-2) 0 0;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* ---- Habits ---- */
+
+.habits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: var(--measure);
+}
+
+.habit {
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+.habit:last-child { border-bottom: 0; }
+
+.habit__name {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.habit__note {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+

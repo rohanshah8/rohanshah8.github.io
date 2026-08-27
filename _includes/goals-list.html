@@ -1,0 +1,44 @@
+{%- assign g = site.data.goals_2026 -%}
+
+{% if g.goals %}
+<ul class="goals">
+  {% for item in g.goals %}
+  <li class="goal">
+    <div class="goal__head">
+      <span class="goal__label">{{ item.label }}</span>
+      {% if item.percent %}
+      <span class="goal__pct">{{ item.percent }}%</span>
+      {% else %}
+      <span class="goal__status">{{ item.status }}</span>
+      {% endif %}
+    </div>
+
+    {%- comment -%}
+    A bar only when there is a real number behind it. Items without one show a
+    status instead, rather than implying a measured percentage.
+    {%- endcomment -%}
+    {% if item.percent %}
+    <div class="goal__bar" role="progressbar" aria-valuenow="{{ item.percent }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ item.label }}">
+      <span class="goal__fill" style="width: {{ item.percent }}%"></span>
+    </div>
+    {% endif %}
+
+    {% if item.detail %}
+    <p class="goal__detail">{{ item.detail }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if g.habits %}
+<h2 class="section-title">Habits</h2>
+<ul class="habits">
+  {% for h in g.habits %}
+  <li class="habit">
+    <span class="habit__name">{{ h.name }}</span>
+    {% if h.note %}<span class="habit__note">{{ h.note }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
