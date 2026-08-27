@@ -1,0 +1,47 @@
+{%- assign p = site.data.profile -%}
+<div class="vcard">
+  {% if p.photo %}
+  <img class="vcard__photo" src="{{ p.photo | relative_url }}" alt="{{ p.name }}" width="120" height="120">
+  {% endif %}
+
+  {%- comment -%}
+  Exactly one h1 per page: the homepage passes as_heading, every other page
+  keeps its own title as the h1 and renders the name as plain text.
+  {%- endcomment -%}
+  {% if include.as_heading %}
+  <h1 class="vcard__name">{{ p.name }}</h1>
+  {% else %}
+  <p class="vcard__name">{{ p.name }}</p>
+  {% endif %}
+
+  {% if p.role and p.role != '' %}
+  <p class="vcard__role">{{ p.role }}</p>
+  {% endif %}
+
+  {% if p.tagline and p.tagline != '' %}
+  <p class="vcard__tagline">{{ p.tagline }}</p>
+  {% endif %}
+
+  {% if p.location and p.location != '' or p.email and p.email != '' %}
+  <ul class="vcard__meta">
+    {% if p.location and p.location != '' %}
+    <li class="vcard__meta-item">{{ p.location }}</li>
+    {% endif %}
+    {% if p.email and p.email != '' %}
+    <li class="vcard__meta-item"><a href="mailto:{{ p.email }}">{{ p.email }}</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+
+  {% if p.socials %}
+  <ul class="vcard__socials">
+    {% for s in p.socials %}
+    <li>
+      <a class="vcard__social" href="{{ s.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ s.name }}">
+        {% include social-icon.html icon=s.icon name=s.name %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

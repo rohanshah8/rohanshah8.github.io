@@ -1,0 +1,45 @@
+{%- assign r = site.data.resume -%}
+
+{% if r.experience %}
+<ol class="timeline">
+  {% for job in r.experience %}
+  <li class="timeline__item">
+    <h3 class="timeline__role">{{ job.role }}</h3>
+    <p class="timeline__org">
+      {{ job.org }}{% if job.dates and job.dates != '' %}<span class="timeline__dates">{{ job.dates }}</span>{% endif %}
+    </p>
+    {% if job.bullets %}
+    <ul class="timeline__bullets">
+      {% for b in job.bullets %}<li>{{ b }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if job.links %}
+    <ul class="timeline__links">
+      {% for l in job.links %}
+      <li><a href="{{ l.url }}" target="_blank" rel="noopener noreferrer">{{ l.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}
+
+{% if r.education %}
+<h2>Education</h2>
+<ol class="timeline">
+  {% for ed in r.education %}
+  <li class="timeline__item">
+    <h3 class="timeline__role">{{ ed.degree }}</h3>
+    <p class="timeline__org">
+      {{ ed.org }}{% if ed.dates and ed.dates != '' %}<span class="timeline__dates">{{ ed.dates }}</span>{% endif %}
+    </p>
+    {% if ed.note %}
+    <p class="timeline__note">
+      {{ ed.note }}{% if ed.advisor and ed.advisor_url %} Advised by <a href="{{ ed.advisor_url }}" target="_blank" rel="noopener noreferrer">{{ ed.advisor }}</a>.{% endif %}
+    </p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}

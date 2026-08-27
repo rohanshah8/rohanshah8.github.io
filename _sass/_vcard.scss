@@ -1,0 +1,107 @@
+.vcard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.vcard__photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--space-4);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.vcard__name {
+  margin: 0 0 var(--space-2);
+  font-size: var(--step-1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.vcard__role {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.vcard__tagline {
+  margin: var(--space-2) 0 0;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.vcard__meta {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+.vcard__meta-item + .vcard__meta-item { margin-top: var(--space-1); }
+
+.vcard__socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.vcard__social {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.vcard__social:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.vcard__social svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Under 900px the card becomes a horizontal strip so it costs little
+   vertical space above the content. */
+@media (max-width: 899px) {
+  .vcard {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-areas:
+      "photo name"
+      "photo role"
+      "socials socials";
+    gap: 0 var(--space-4);
+    align-items: center;
+    text-align: left;
+    padding: var(--space-5);
+  }
+  .vcard__photo {
+    grid-area: photo;
+    width: 72px;
+    height: 72px;
+    margin: 0;
+  }
+  .vcard__name { grid-area: name; margin: 0; }
+  .vcard__role { grid-area: role; }
+  .vcard__tagline { display: none; }
+  .vcard__meta { display: none; }
+  .vcard__socials {
+    grid-area: socials;
+    justify-content: flex-start;
+    margin-top: var(--space-4);
+  }
+}

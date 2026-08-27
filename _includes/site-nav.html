@@ -1,0 +1,6 @@
+<nav class="site-nav" aria-label="Main">
+  {% for item in site.navigation_header %}
+    <a class="site-nav__link{% if page.url == item.url %} site-nav__link--current{% endif %}"
+       href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  {% endfor %}
+</nav>

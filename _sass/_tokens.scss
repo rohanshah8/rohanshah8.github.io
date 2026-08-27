@@ -1,0 +1,75 @@
+/* All themes are a swap of these custom properties. Rules elsewhere in the
+   stylesheet must reference the tokens, never raw colour values. */
+
+:root,
+[data-theme="light"] {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Swap this one line to put article body copy in a serif. */
+  --font-prose: var(--font-sans);
+
+  --step--1: 0.875rem;
+  --step-0:  1.125rem;
+  --step-1:  1.375rem;
+  --step-2:  1.75rem;
+  --step-3:  2.25rem;
+  --step-4:  2.75rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --measure: 68ch;
+  --sidebar-w: 300px;
+  --shell-max: 1100px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --header-h: 60px;
+  --radius: 8px;
+
+  --bg: #ffffff;
+  --bg-subtle: #f7f8fa;
+  --bg-card: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --border: #e6e9ee;
+  --text: #16161d;
+  --text-secondary: #4a4f5c;
+  --text-muted: #878d9a;
+  --accent: #ff6b35;
+  --accent-hover: #e2521d;
+  --accent-soft: rgba(255, 107, 53, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] {
+  --bg: #14141b;
+  --bg-subtle: #1b1c25;
+  --bg-card: #1b1c25;
+  --header-bg: rgba(20, 20, 27, 0.85);
+  --border: #2a2c38;
+  --text: #e6e6ea;
+  --text-secondary: #a6a9b6;
+  --text-muted: #6e7280;
+  --accent: #ff8c5a;
+  --accent-hover: #ffa478;
+  --accent-soft: rgba(255, 140, 90, 0.10);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Auto starts from the light palette; theme.js overwrites the accent
+   tokens inline on each animation frame. */
+[data-theme="auto"] {
+  --bg: #ffffff;
+  --bg-subtle: #f7f8fa;
+  --bg-card: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --border: #e6e9ee;
+  --text: #16161d;
+  --text-secondary: #4a4f5c;
+  --text-muted: #878d9a;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+}

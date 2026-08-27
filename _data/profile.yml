@@ -1,0 +1,18 @@
+name: Rohan Shah
+role: Senior Machine Learning Engineer
+
+# Optional. Left blank on purpose — the card omits any empty field entirely,
+# so these can be filled in later without touching a layout.
+tagline: ""
+location: ""
+email: ""
+
+photo: /assets/images/rohan.jpg
+
+socials:
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/rohan-shah-50221612a/
+    icon: linkedin
+  - name: GitHub
+    url: https://github.com/rohanshah8
+    icon: github

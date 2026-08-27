@@ -1,4 +1,4 @@
 ---
 layout: home
-collectionpage: posts
+title: Rohan Shah
 ---

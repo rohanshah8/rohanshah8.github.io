@@ -1,5 +1,33 @@
-<small class="small post-meta">
-  <time datetime="{{ page.date | date_to_xmlschema }}" class="time">{{ page.date | date: "%B %d, %Y" }}</time>
-  <span class="views-meta-divider">&nbsp;&middot;&nbsp;</span>
-  <span class="post-views-count">... views</span>
-</small>
+{%- comment -%}
+Takes the post explicitly as `include.post` rather than relying on the ambient
+`page`, so it behaves identically inside a loop and on a post page.
+
+The view key must reproduce the algorithm the old inline script used — strip
+leading and trailing slashes, replace `/`, `.`, `_` with `-`, lowercase — or
+existing counts orphan. Splitting "/2026/02/01/welcome/" on "/" yields
+["", "2026", "02", "01", "welcome"], so joining gives "-2026-02-01-welcome"
+and remove_first trims the leading dash. downcase matters: post slugs preserve
+capitalisation, e.g. /2026/02/03/How-Zip-Works/.
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign vkey = p.url | split: '/' | join: '-' | remove_first: '-' | replace: '.', '-' | replace: '_', '-' | downcase -%}
+{%- assign words = p.content | number_of_words -%}
+<div class="post-meta">
+  <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time>
+
+  {% if words > 0 %}
+  <span class="meta-dot">&middot;</span>
+  <span>{% if words < 200 %}1{% else %}{{ words | divided_by: 200 }}{% endif %} min read</span>
+  {% endif %}
+
+  {% if include.show_author and p.author %}
+  <span class="meta-dot">&middot;</span>
+  <span>{{ p.author }}</span>
+  {% endif %}
+
+  <span class="meta-dot">&middot;</span>
+  <span data-views
+        data-views-endpoint="{{ site.views.endpoint }}"
+        data-views-key="{{ vkey }}"
+        {% if include.mode == 'increment' %}data-views-mode="increment"{% endif %}>&hellip;</span>
+</div>

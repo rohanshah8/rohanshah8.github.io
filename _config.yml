@@ -4,54 +4,51 @@ baseurl: ""
 description: >-
   My personal blog where I share thoughts on technology, life, and building things.
 
-# Theme
-remote_theme: daviddarnes/garth
-
-# Plugins
 plugins:
-  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
 
-# Pagination settings
-paginate: 5 # Number of posts per page
-paginate_path: page:num # Blog pagination path
-
-# Jekyll settings
 permalink: pretty
-excerpt_separator: <!-- more -->
-timezone: America/New_York # Set to your timezone
+timezone: America/New_York
+encoding: utf-8
+lang: en-US
 
-# Collections
 collections:
   posts:
-    title: Blog
+    title: Writing
     output: true
-    description: "Thoughts on technology, life, and building things. [Learn more about me](/about/)"
 
-# Defaults
 defaults:
   - scope:
       path: ""
       type: pages
     values:
-      layout: page
+      layout: card
   - scope:
       path: ""
       type: posts
     values:
       layout: post
 
-# Navigation
 navigation_header:
-  - title: About me
+  - title: About
     url: /about/
-  - title: Blog
-    url: /
-  - title: List_2026
+  - title: Writing
+    url: /writing/
+  - title: 2026 List
     url: /list_2026/
 
-# Site settings
-encoding: utf-8
-lang: en-US
+# Consumed by assets/js/views.js via data attributes on the meta row.
+views:
+  endpoint: "https://api.counterapi.dev/v1/rohanshah8-github-io"
+
+# Setting `exclude` REPLACES Jekyll's defaults, so the standard entries are
+# restated here. `docs` is load-bearing: without it Jekyll parses the Liquid
+# inside the spec and plan markdown and the build fails outright.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - docs
+  - README.md
