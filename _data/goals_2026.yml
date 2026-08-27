@@ -7,7 +7,7 @@
 
 goals:
   - label: Run a full marathon
-    detail: Half marathon done in 2025, base building now
+    detail: Half marathon done in 2025
     percent: 50
 
   - label: Read 12 books
@@ -24,16 +24,25 @@ goals:
     status: In progress
 
   - label: Bring back my competitive spirit
-    status: In progress
+    detail: Still distracted in different things
+    percent: 40
 
   - label: Learn to make 10 desserts
     status: Not started
 
-  - label: Communication and storytelling skills
-    status: Not started
+  - label: Cook food 5 days a week
+    percent: 80
 
-  - label: Comfortable in conversations and building connections
-    status: Not started
+  - label: Communication and storytelling skills
+    status: In progress
+
+  - label: Corporate skills
+    status: In progress
+
+  - label: Daily Physical activity
+    status: Gym/Running
+    percent: 50
+
 
 habits:
   - name: Stop overthinking
